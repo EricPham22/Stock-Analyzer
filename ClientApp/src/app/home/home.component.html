@@ -1,0 +1,83 @@
+<div class="container">
+  <h2>How it Works</h2>
+  <div>
+    Stock analyzer allows you to input a ticker symbol and determine wether is it a good buy, sell or hold according to different technical indicators.
+    You can input up to 3 indicators. See Description for information on each indicator.
+
+    <div>Ticker Symbol - The stock that you want to look up</div>
+    <div>Interval - The time interval between two consecutive data points </div>
+    <div>Indicator - The desired technical indicator</div>
+    <div>Time Period - The number of data points used to calcuate average</div>
+  </div>
+</div>
+
+<h6>NOTE:</h6>
+<ul>
+  <li>
+<em> Using a free key from alpha vantage, Stock Analyzer only supports 1 search per minute</em> </li>
+  <li>
+<em> VWAP only supports IntraDay (1,5,15,30,60) interval value</em>
+    </li>
+ </ul>
+
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="stock">Ticker Symbol</label>
+    <input form="text" [(ngModel)]="stock" id="stock" name="stock" class="form-control" placeholder="Ticker Symbol" />
+  </div>
+
+  <div class="form-group">
+    <label for="interval">Interval</label>
+    <select class="form-control" id="interval" name="interval" [(ngModel)]="interval" required>
+      <option selected>Choose...</option>
+      <option *ngFor="let interval of intervalOptions">{{interval}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-text" for="indicator1"> Indicator 1</label>
+    <select class="form-control" id="indicator1" name="indicator1" [(ngModel)]="indicator1">
+      <option *ngFor="let indicator of indicatorValues">{{indicator}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-group-text" for="timePeriod1"> Time period 1</label>
+    <select class="custom-select" id="timePeriod1" name="timePeriod1" [(ngModel)]="timePeriod1">
+      <option *ngFor="let period of periodValues">{{period}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-text" for="indicator2"> Indicator 2</label>
+    <select class="form-control" id="indicator2" name="indicator2" [(ngModel)]="indicator2">
+      <option *ngFor="let indicator of indicatorValues">{{indicator}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-group-text" for="timePeriod2"> Time period 1</label>
+    <select class="custom-select" id="timePeriod2" name="timePeriod2" [(ngModel)]="timePeriod2">
+      <option *ngFor="let period of periodValues">{{period}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-text" for="indicator3"> Indicator 3</label>
+    <select class="form-control" id="indicator3" name="indicator3" [(ngModel)]="indicator3">
+      <option *ngFor="let indicator of indicatorValues">{{indicator}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-group-text" for="timePeriod3"> Time period 3</label>
+    <select class="custom-select" id="timePeriod3" name="timePeriod3" [(ngModel)]="timePeriod3">
+      <option *ngFor="let period of periodValues">{{period}}</option>
+    </select>
+  </div>
+
+  <button type="submit" id="submit" class="btn btn-outline-success btn-block">Submit</button>
+
+</form>
+
+

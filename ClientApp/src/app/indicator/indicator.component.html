@@ -1,0 +1,15 @@
+<section>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between value">
+        <span> {{func}} ({{period}})</span>
+        <div class="d-flex justify-content-end spacing" [ngClass]="{'buy' : bsh == 'Buy', 'sell' : bsh == 'Sell', 'hold' : bsh == 'Hold'}">
+        <div> {{currentValue}} | {{bsh}}</div>
+          </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+
+

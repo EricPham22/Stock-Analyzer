@@ -1,0 +1,31 @@
+<div class="container">
+  <section>
+    <h2>{{QD?.symbol}} Details </h2>
+    <h6>Ticker Symbol: {{QD?.symbol}}</h6>
+    <h6>Current Price: {{QD?.price}}</h6>
+    <h6>Open: {{QD?.open}}</h6>
+    <h6>High: {{QD?.high}}</h6>
+    <h6>Low: {{QD?.low}}</h6>
+    <h6>Volume: {{QD?.volume}}</h6>
+    <h6>Price Change: {{QD?.priceChange}}</h6>
+    <h6>Percent Change: {{QD?.percentChange}}</h6>
+  </section>
+    <section>
+      <h2>Indicator Analysis: {{data.interval}} Interval</h2>
+      <div class="col">
+        <div class="flex-grow-0" *ngFor="let period of fpMap">
+          <app-indicator [period]="period.timePeriod"
+                         [func]="period.indicator"
+                         [price]="QD?.price"
+                         [ticker]="period.ticker"
+                         [series]="period.series_type"
+                         [time]="period.interval"></app-indicator>
+        </div>
+      </div>
+    </section>
+  <section>
+    <h2>{{data.interval.toUpperCase()}} {{QD?.symbol}} Chart</h2>
+    <app-chart [ticker]="data.symbol"
+               [interval]="data.interval"></app-chart>
+    </section>
+    </div>
